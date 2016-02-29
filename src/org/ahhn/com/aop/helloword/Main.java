@@ -5,19 +5,35 @@ package org.ahhn.com.aop.helloword;
  */
 public class Main {
 	public static void main(String[] args) {
-		ArithmeticCalculator arithmeticCalculator = null;
-		arithmeticCalculator = new ArithmeticCalculatorImpl();
+//		ArithmeticCalculator arithmeticCalculator = null;
+//		arithmeticCalculator = new ArithmeticCalculatorImpl();
+//
+//		int result = arithmeticCalculator.add(2, 3);
+//		System.out.println("-->" + result);
+//
+//		result = arithmeticCalculator.sub(2, 3);
+//		System.out.println("-->" + result);
+//
+//		result = arithmeticCalculator.mul(2, 3);
+//		System.out.println("-->" + result);
+//
+//		result = arithmeticCalculator.div(2, 3);
+//		System.out.println("-->" + result);
 
-		int result = arithmeticCalculator.add(2, 3);
+		ArithmeticCalculator target=new ArithmeticCalculatorLoggingImpl();
+		ArithmeticCalculator proxy=new ArithmeticCalculatorLoggingProxy(target).getLoggingProxy();
+		System.out.println(proxy.getClass().getName());
+
+		int result = proxy.add(2, 3);
 		System.out.println("-->" + result);
 
-		result = arithmeticCalculator.sub(2, 3);
+		result = proxy.sub(2, 3);
 		System.out.println("-->" + result);
 
-		result = arithmeticCalculator.mul(2, 3);
+		result = proxy.mul(2, 3);
 		System.out.println("-->" + result);
 
-		result = arithmeticCalculator.div(2, 3);
+		result = proxy.div(2, 3);
 		System.out.println("-->" + result);
 	}
 }
