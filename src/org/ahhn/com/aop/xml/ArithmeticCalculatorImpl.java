@@ -1,11 +1,8 @@
-package org.ahhn.com.aop.impl;
-
-import org.springframework.stereotype.Component;
+package org.ahhn.com.aop.xml;
 
 /**
  * Created by XJX on 2016/2/29.
  */
-@Component("arithmeticCalculator")
 public class ArithmeticCalculatorImpl implements ArithmeticCalculator {
 	@Override
 	public int add(int i, int j) {
